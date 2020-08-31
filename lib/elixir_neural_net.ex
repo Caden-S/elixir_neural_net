@@ -6,7 +6,7 @@ defmodule ElixirNeuralNet do
         propagate_sum(inputs, weights, bias)
     end
 
-    # Inputs * Weights + bias
+    # returns Inputs * Weights + bias
     def propagate_sum(inputs, weights, bias) do
         Enum.zip(inputs, weights)
         |> Enum.map(fn {x,y} -> x * y end)
