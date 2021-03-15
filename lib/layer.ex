@@ -1,14 +1,14 @@
 defmodule Layer do
     def create_layer_dense(num_inputs, num_neurons) do
         weights = 
-            for _x <- 0..num_neurons, do: for _y <- 0..num_inputs, do: :rand.normal * 0.10
+            for _x <- 0..num_neurons-1, do: for _y <- 0..num_inputs-1, do: :rand.normal * 0.10
         biases = 
-            for _x <- 0..num_neurons, do: for _y <- 0..0, do: 0
+            for _x <- 0..num_neurons-1, do: 0
         _layer = [weights, biases]
     end
 
     def forward(inputs, weights, biases) do
-        Math.matrix_multiply(inputs, weights)
+        Calc.matrix_multiply(inputs, weights)
         |> apply_biases(biases)
     end
 
