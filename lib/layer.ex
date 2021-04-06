@@ -7,7 +7,7 @@ defmodule Layer do
         _layer = [weights, biases]
     end
 
-    def forward(inputs, weights, biases) do
+    def forward_pass(inputs, weights, biases) do
         Calc.matrix_multiply(inputs, weights)
         |> apply_biases(biases)
     end

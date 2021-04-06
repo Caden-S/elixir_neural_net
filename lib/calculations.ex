@@ -12,4 +12,17 @@ defmodule Calc do
             end)
         end)
     end
+
+    # Outputs a linearly spaced list of numbers with a given start, stop,
+    # and desired length of list
+    def linspace(start, stop, length) do
+        0..length-1
+        |> Enum.map(fn x -> start + (x * ( (stop-start)/(length-1) )) end)
+    end
+
+    def transpose(rows) do
+        rows
+        |> List.zip
+        |> Enum.map(&Tuple.to_list/1)
+    end
 end
